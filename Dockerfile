@@ -12,6 +12,15 @@ LABEL maintainer="hello@satoshipay.io"
 ADD install.sh /
 RUN /install.sh
 
+# # install gcloud and gsutil
+# RUN apt-get update -qq && apt-get install lsb-release -y
+# RUN export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" && \
+#   echo "CLOUD_SDK_REPO: $CLOUD_SDK_REPO" && \
+#   echo "deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+# RUN curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+# RUN apt-get update -qq
+# RUN apt-get install google-cloud-sdk -qqy
+#
 VOLUME /data
 
 # peer port

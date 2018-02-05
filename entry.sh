@@ -19,8 +19,17 @@ function stellar_core_init_db() {
   touch $DB_INITIALIZED
 }
 
+function setup_gsutil() {
+  echo "Setting up gsutil..."
+  echo $GS_SERVICE_ACCOUNT_KEY > /tmp/gcloud-key.json
+  gcloud auth activate-service-account --key-file /tmp/gcloud-key.json
+  gsutil ls gs://bloom-general_cloudbuilds
+  echo "gsutil configured"
+}
+
 confd -onetime -backend env -log-level error
 
 stellar_core_init_db
+setup_gsutil
 
 exec "$@"
