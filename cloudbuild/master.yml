@@ -1,10 +1,10 @@
 steps:
   - name: 'gcr.io/cloud-builders/docker'
-    args: ["pull", "us.gcr.io/$PROJECT_ID/stellar-core:staging-latest"]
+    args: ["pull", "us.gcr.io/$PROJECT_ID/stellar-core:latest"]
   - name: 'gcr.io/cloud-builders/docker'
     args:
       - "build"
-      - "--cache-from=us.gcr.io/$PROJECT_ID/stellar-core:staging-latest"
+      - "--cache-from=us.gcr.io/$PROJECT_ID/stellar-core:latest"
       - "--file=Dockerfile"
       - "--tag=us.gcr.io/$PROJECT_ID/stellar-core:latest"
       - "--tag=us.gcr.io/$PROJECT_ID/stellar-core:$REVISION_ID"
