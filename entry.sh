@@ -20,6 +20,7 @@ function stellar_core_init_db() {
 }
 
 function setup_gsutil() {
+  [ -n $GS_SERVICE_ACCOUNT_KEY ] || return 0
   echo "Setting up gsutil..."
   echo $GS_SERVICE_ACCOUNT_KEY > /tmp/gcloud-key.json
   gcloud auth activate-service-account --key-file /tmp/gcloud-key.json
