@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -ue
+set -e
 
 function stellar_core_init_db() {
   local DB_INITIALIZED="/data/.db-initialized"
