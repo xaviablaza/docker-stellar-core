@@ -38,6 +38,11 @@ ENV \
 
 ADD confd /etc/confd
 
+# There was an issue where if gsutil is called without the wrapper, it would not have
+# any environment variables set. Until that is resolved, wrap with script that loads the env.
+ADD bin/gsutil /
+RUN chmod +x /gsutil
+
 ADD entry.sh /
 ENTRYPOINT ["/entry.sh"]
 
