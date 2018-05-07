@@ -12,7 +12,7 @@ function stellar_core_init_db() {
 
   echo "initializing core db..."
 
-  stellar-core --conf /stellar-core.cfg -newdb
+  stellar-core --conf /stellar-core.cfg --newdb
 
   echo "finished initializing core db"
 
